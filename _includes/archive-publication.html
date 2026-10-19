@@ -1,0 +1,48 @@
+
+<article class="archive__item publication-entry">
+
+  <h2 class="archive__item-title">
+    <span class="publication-number">[{{ publication_number }}]</span>
+    <span>{{ post.title | escape }}</span>
+  </h2>
+
+
+  {% if post.display_authors or post.authors %}
+    {% assign author_list = post.display_authors | default: post.authors | escape %}
+    {% assign author_list = author_list | replace: "; ...; ", ", …, " %}
+    {% assign author_list = author_list | replace: "; ...", ", …" %}
+    {% assign author_list = author_list | replace: "; et al.", ", et al." %}
+    {% assign author_list = author_list | replace: "; ", ", " %}
+    {% assign author_list = author_list | replace: ", ,", "," %}
+    {% assign author_list = author_list | replace: "Esmer, E. M.", "<strong>Esmer, E. M.</strong>" %}
+    {% assign author_list = author_list | replace: "et al.", "et&nbsp;al." %}
+  
+    <div class="publication-authors">
+      {{ author_list }} ({{ post.year }}).
+    </div>
+  {% endif %}
+
+
+  <div class="publication-citation">
+    <em>{{ post.venue }}</em>{% if post.volume %}, <strong>{{ post.volume }}</strong>{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %}.
+
+    {% if post.doi or post.arxiv or post.ads %}
+      <span class="publication-links">
+        &nbsp;|&nbsp;
+        {% if post.doi %}
+          <a href="https://doi.org/{{ post.doi }}">DOI</a>
+        {% endif %}
+        {% if post.arxiv %}
+          {% if post.doi %} · {% endif %}
+          <a href="https://arxiv.org/abs/{{ post.arxiv }}">arXiv</a>
+        {% endif %}
+        {% if post.ads %}
+          {% if post.doi or post.arxiv %} · {% endif %}
+          <a href="{{ post.ads }}">ADS/SciX</a>
+        {% endif %}
+      </span>
+    {% endif %}
+  </div>
+
+</article>
+

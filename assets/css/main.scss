@@ -36,3 +36,39 @@
     "layout/archive",
     "layout/sidebar"
 ;
+
+
+
+/* Academic publication list */
+
+.publication-entry {
+  margin-bottom: 0.85rem;
+
+  .archive__item-title {
+    margin: 0 0 0.2rem;
+    font-size: 1.05em;
+    line-height: 1.35;
+  }
+
+  .publication-number {
+    font-weight: 600;
+    margin-right: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .publication-authors {
+    margin: 0 0 0.15rem;
+    line-height: 1.4;
+  }
+
+  .publication-citation {
+    margin: 0 0 0.15rem;
+    line-height: 1.4;
+  }
+
+  .publication-links {
+    font-size: 0.9em;
+    white-space: normal;
+  }
+}
+
