@@ -76,3 +76,7 @@
 .archive {
   font-size: 0.9rem;
 }
+/* No extra space above the first heading on a page */
+.page__content > h2:first-child {
+  margin-top: 0;
+}
