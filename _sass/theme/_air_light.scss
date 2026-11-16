@@ -3,19 +3,19 @@
     ========================================================================== */
 
 /* Color codes used for the theme */
-$primary-color              : #0092ca;
+$primary-color              : #1f7fae;
 $dark-primary-color         : mix(#000, $primary-color, 40%);
 $darker-primary-color       : mix(#000, $primary-color, 60%);
 $light-primary-color        : mix(#000, $primary-color, 50%);
 
-$background                 : #eeeeee;
+$background                 : #d8dde3;
 $background-light           : mix(#fff, $background, 20%);
-$background-lighter         : mix(#fff, $background, 90%);
-$text                       : #222831;
+$background-lighter         : mix(#fff, $background, 30%);
+$text                       : #2b3038;
 $link                       : #393e46;
 $link-dark                  : mix(#000, $link, 25%);
 $link-light                 : mix(#fff, $link, 25%);
-$footer                     : $primary-color;
+$footer                     : mix(#000, $background, 7%);
 
 /* Color codes used for the site */
 $danger-color               : #ee5f5b;
@@ -41,7 +41,7 @@ $sidebar-screen-min-width   : 1024px;
     --global-footer-bg-color            : #{$footer};
     --global-border-color               : #{$light-primary-color};
     --global-dark-border-color          : #{$background-light};
-    --global-code-background-color      : #fafafa;
+    --global-code-background-color      : #{$background-lighter};
     --global-code-text-color            : #{$darker-primary-color};
     --global-fig-caption-color          : #{$light-primary-color};
     --global-link-color                 : #{$link};
