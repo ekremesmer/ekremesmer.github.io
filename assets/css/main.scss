@@ -71,4 +71,8 @@
     white-space: normal;
   }
 }
-
+/* Smaller text in the main content area only (sidebar unchanged) */
+.page__content,
+.archive {
+  font-size: 0.9rem;
+}
