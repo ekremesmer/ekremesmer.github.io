@@ -20,21 +20,12 @@ My work combines ground-based and space-based observations with computational an
 
 More on current and past projects is on the [Research](/research/) page.
 
-## News
+## Recent Publications
 
-{% for item in site.data.news limit: 6 %}
-- **{{ item.date }}** — {{ item.text }}
+{% assign recent = site.publications | sort: "date" | reverse %}
+{% for post in recent limit: 4 -%}
+- {{ post.title }}. *{{ post.venue }}* ({{ post.year }}). [[Details]]({{ post.url }})
 {% endfor %}
-
-## Selected Publications
-
-- **Esmer, E. M.** & Daylan, T. (2025). *Eclipse Timing Variations of Circumbinary Substellar Objects in TESS Data.* AJ, 170, 322. [[Details]](/publication/2025aj-170-322e/)
-- **Esmer, E. M.** et al. (2023). *Testing the planetary hypothesis of NY Virginis: anticipated change in the eclipse timing trend within the next five years.* MNRAS, 525, 6050. [[Details]](/publication/2023mnras-525-6050e/)
-- **Esmer, E. M.** et al. (2022). *Detection of two additional circumbinary planets around Kepler-451.* MNRAS, 511, 5207. [[Details]](/publication/2022mnras-511-5207e/)
-- **Esmer, E. M.** et al. (2021). *Revisiting the analysis of HW Virginis eclipse timing data. I.* A&A, 648, A85. [[Details]](/publication/2021a-a-648a-85e/)
 
 See the full list on the [Publications](/publications/) page.
 
-## Teaching, Mentoring & Outreach
-
-I am committed to teaching, mentoring the next generation of researchers, and engaging broader audiences through astronomy education and public outreach.
