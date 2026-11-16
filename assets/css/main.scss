@@ -80,3 +80,11 @@
 .page__content > h2:first-child {
   margin-top: 0;
 }
+/* Outreach photos */
+.outreach-photo {
+  display: block;
+  max-width: 350px;
+  width: 100%;
+  margin: 0.4em 0 2em;
+  border-radius: 6px;
+}

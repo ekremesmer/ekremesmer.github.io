@@ -8,7 +8,8 @@ author_profile: true
 ## Public Engagement and Science Communication
 
 - Science Communicator, SciFest, Saint Louis Science Center, St. Louis, MO — *May 30, 2026*
-- Organizer, Astronomy on Tap – St. Louis, MO — *2024–2026*
+- Organizer, Astronomy on Tap – St. Louis, MO — *2024–2026*  
+  ![Astronomy on Tap St. Louis](/images/outreach/astronomy-on-tap-stl.jpg){: .outreach-photo}
 - Social Media Editor, Ankara University Observatory (AUO) — *2018–2024*
 - Organizer and Instructor, Public Events of AUO — *2015–2024*
 - Instructor, School Visits to AUO — *2015–2024*  
