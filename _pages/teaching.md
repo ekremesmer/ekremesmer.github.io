@@ -36,21 +36,4 @@ author_profile: true
 
 ## Research Mentoring
 
-Mentored 16 students (undergraduate through PhD) at five institutions, resulting in 12 student-led papers (2 under review), and continued mentoring several through their own PhD research.
-
-- Md Abdullah Al Zaman (PhD Student, University of Kansas) — Al Zaman et al. (2026)
-- Maleah Rhem (PhD Student, University of Kansas) — S-type planet stability (in progress)
-- Aavik Wadivkar (Undergraduate, Washington University in St. Louis)
-- Peifeng Peng (MSc Student, Washington University in St. Louis)
-- Nathan Whitsett (PhD Student, Washington University in St. Louis) — Whitsett et al. (under review)
-- Selçuk Yalçınkaya (Undergraduate → PhD, Ankara University) — Yalçınkaya et al. (2024a, 2024b)
-- Anıl Temelci (Undergraduate → PhD Student, Ankara University) — Temelci et al. (2026)
-- Furkan Akar (Undergraduate → PhD Student, Ankara University) — Akar et al. (2025)
-- Ezgi Sertkan (Undergraduate → PhD Student, Ankara University) — Sertkan et al. (2025; under review)
-- Barış Güler (Undergraduate → MSc, Ankara University) — Güler et al. (2025)
-- Furkan Tomak (Undergraduate → Industry, Ankara University) — Astrophotography project
-- Oğuzhan Karadeniz (Undergraduate → Industry, Ankara University) — Astrophotography project
-- Onur Yörükoğlu (MSc → PhD Student, Ankara University)
-- Eylül Demir (MSc, Ankara University) — Demir et al. (2023)
-- Yasemin Aladağ (MSc, Çukurova University) — Aladağ et al. (2021)
-- Fatemeh Davoudi (PhD, University of Zanjan) — Davoudi et al. (2021)
+I have mentored 16 students, from undergraduate to PhD level, at five institutions: the University of Kansas, Washington University in St. Louis, Ankara University, Çukurova University and the University of Zanjan. This work has led to 12 student-led papers (2 under review), and I have continued mentoring several of these students through their own PhD research.
