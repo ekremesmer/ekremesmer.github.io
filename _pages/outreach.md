@@ -16,7 +16,7 @@ author_profile: true
   Astronomy education for primary and secondary school students, including groups from disadvantaged schools.
 - Organizer and Instructor, Public Events on Special Celestial Events, AUO — *2007–2024*
 - Coordinator and Editor, Annual Celestial Events Calendar, AUO — *2015–2024*
-- Moderator, Online Astronomy Outreach Events, AUO — *2019–2022*
+- Moderator and Speaker, Online Astronomy Outreach Events, AUO — *2019–2022* · [my talk (video)](https://www.youtube.com/watch?v=rC3RlHO2bsk)
 - Instructor, AUO Summer Schools — *2015–2019*
 - Task Coordinator, Public Outreach Events, AUO — *2015–2018*
 - Instructor, Astronomy Festivals in Turunç, ITAP — *2011*  
@@ -28,7 +28,7 @@ author_profile: true
 ## Public Talks
 
 - **What Eclipsing Binaries Can Tell Us About Their Hidden Worlds**  
-  St. Louis Astronomical Society Meeting, St. Louis, MO, USA — *May 15, 2026*
+    St. Louis Astronomical Society Meeting, St. Louis, MO, USA — *May 15, 2026* [(Watch the recording)](https://www.youtube.com/watch?v=DMqEaEc4nC8)
 - **Discovery of New Worlds**  
   Space Week, Physics Research Society, Ankara University, Ankara, Turkey — *May 24, 2024*
 - **Sun and the Solar System**  
