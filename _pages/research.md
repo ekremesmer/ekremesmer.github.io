@@ -5,54 +5,42 @@ permalink: /research/
 author_profile: true
 ---
 
-## Circumbinary Companion Populations and Detectability
+My research explores how planets form, survive, and can be detected in binary and multiple star systems, and how stellar multiplicity shapes the wider planet population. I combine eclipse-timing, transit, and radial-velocity observations with dynamical modelling and population statistics.
 
-<!-- TESS ETV Survey -->
+<!-- CBP population -->
 <div style="text-align: center;">
-  <img src="{{ '/images/mpbin_completeness_plot.png' | relative_url }}"
-       alt="Circumbinary companion survey sensitivity"
+  <img src="{{ '/images/cbp_population.png' | relative_url }}"
+       alt="Mass-period diagram of circumbinary planets and brown dwarfs"
        style="width: 100%; max-width: 650px; height: auto;">
 </div>
 
-*Recovered circumbinary companions from simulations of TESS eclipse-timing observations compared with known circumbinary planetary systems. Figure 11 from [Esmer & Daylan (2025)](https://ui.adsabs.harvard.edu/abs/2025AJ....170..322E/abstract).*
+*Masses and orbital periods of known circumbinary planets and brown dwarfs (colored by detection method), compared with planets around single stars, S-type planets in multiple-star systems, and the Solar System planets. Figure 1 from [Esmer & Daylan (2025)](/publication/2025aj-170-322e/).*
 
-Beyond characterizing individual systems, I investigate the sensitivity of eclipse-timing searches to circumbinary companions and the implications for their populations. In Esmer & Daylan (2025), we analyzed 152 detached eclipsing binaries observed by TESS and conducted simulations to quantify the detectability of circumbinary planets and brown dwarfs. These results provide a framework for assessing survey completeness and constraining companion occurrence rates.
+## Current Research
 
----
+**How common are Earth-like planets?**  
+With the ExoLab group (PI: Ian Crossfield), I work on occurrence-rate (η⊕) estimates for Earth-like planets as part of the transiting-exoplanet science case for the Lazuli Space Observatory.
 
-## Circumbinary Companions and Orbital Dynamics
+**The architecture of the TOI-1233 system**  
+With the Astromusers group (PI: Tansu Daylan), I am revisiting the physical architecture of the multi-planet system TOI-1233, combining space-based photometry with radial-velocity measurements to refine the planets' properties.
 
-Eclipse timing variations (ETVs) provide a way to investigate planetary and substellar companions orbiting eclipsing binary stars. My research combines photometric observations, light-curve modeling, eclipse-timing analysis, and numerical simulations to characterize these systems and assess the dynamical viability of proposed companions.
+**Planets orbiting one star of a binary (S-type)**  
+Together with a PhD student, I study the dynamical stability of planets orbiting a single star within a binary system, and where such planets can survive long term.
 
-Studies of HW Vir, Kepler-451, and NY Vir illustrate different aspects of this approach, from determining the physical properties of eclipsing binaries to modeling their orbital-period variations and testing the long-term stability of candidate circumbinary systems.
+**Circumbinary planets and brown dwarfs with TESS**  
+Building on Esmer & Daylan (2025), I am extending the TESS eclipse-timing survey to constrain how often planets and brown dwarfs orbit eclipsing binaries.
 
-### Light-Curve Modeling — HW Vir
+## Transit Timing and Exoplanet Characterization
 
-<!-- HW Vir -->
-<div style="text-align: center;">
-  <img src="{{ '/images/hwvir_lc.png' | relative_url }}"
-       alt="Multi-band light-curve models of HW Vir"
-       style="width: 80%; max-width: 650px; height: auto;">
-</div>
+Transit timing variations (TTVs) can reveal additional planets, orbital decay, or tidal interactions in known exoplanet systems. I have contributed to transit-timing studies of individual systems such as HAT-P-19 and WASP-43 b, as well as homogeneous analyses of 10 and 16 exoplanet systems, with a particular focus on ephemeris determination and timing analysis ([Baştürk et al. 2020](/publication/2020mnras-496-4174b/), [2022](/publication/2022mnras-512-2062b/); [Davoudi et al. 2021](/publication/2021aj-162-210d/); [Yalçınkaya et al. 2024](/publication/2024mnras-530-2475y/)).
 
-*Multi-band photometric observations of HW Vir compared with synthetic light-curve models and their residuals. Figure 2 from [Esmer et al. (2021)](https://ui.adsabs.harvard.edu/abs/2021A%26A...648A..85E/abstract).*
+## Eclipsing Binaries and Stellar Multiplicity
 
-Simultaneous modeling of photometric and radial-velocity observations allows us to constrain the physical properties of eclipsing binaries, providing essential information for interpreting their timing variations.
+Precise physical parameters of eclipsing binaries are the foundation for interpreting their timing variations. I have contributed to combined spectroscopic and photometric analyses of eclipsing binaries such as V566 Oph, V972 Her, and RR Dra ([Selam et al. 2018](/publication/2018ap-ss-363-34s/); [Şenavcı et al. 2022](/publication/2022aca-72-31s/)), and to the characterization of a hierarchical quadruple system, TIC 263930790, revealed through eclipse timing variations and radial velocities ([Özavcı et al. 2026](/publication/2026mnras-548ag614o/)).
 
-### Eclipse-Timing Modeling — Kepler-451
+## Circumbinary Companions and Eclipse Timing
 
-<!-- Kepler-451 -->
-<div style="text-align: center;">
-  <img src="{{ '/images/k451_etv.png' | relative_url }}"
-       alt="Eclipse-timing variations of Kepler-451"
-       style="width: 100%; max-width: 650px; height: auto;">
-</div>
-
-*Eclipse-timing variations of Kepler-451 modeled using light-travel-time effects and a secular term. Figure 4 from [Esmer et al. (2022)](https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.5207E/abstract).*
-
-Using Kepler and TESS observations, we investigated periodic variations in the eclipse timings of Kepler-451 and identified two additional candidate circumbinary planets. The combined timing solution suggested a system containing three planetary-mass companions, motivating further investigation of its orbital architecture and stability.
-
-### Dynamical Stability — NY Vir
+Eclipse timing variations (ETVs) offer a way to detect planetary and substellar companions orbiting eclipsing binaries. My work combines photometric observations, light-curve modeling, eclipse-timing analysis, and numerical simulations to characterize such systems and to test whether proposed companions are dynamically viable. These studies range from constraining the physical properties of HW Vir ([Esmer et al. 2021](/publication/2021a-a-648a-85e/)) and identifying two additional candidate circumbinary planets around Kepler-451 ([Esmer et al. 2022](/publication/2022mnras-511-5207e/)), to showing that only low-eccentricity, two-companion configurations of NY Vir remain dynamically stable ([Esmer et al. 2023](/publication/2023mnras-525-6050e/)).
 
 <!-- NY Vir -->
 <div style="text-align: center;">
@@ -63,4 +51,8 @@ Using Kepler and TESS observations, we investigated periodic variations in the e
 
 *Dynamical stability map of the proposed circumbinary companions of NY Vir. Figure 4 from [Esmer et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.6050E/abstract).*
 
-Eclipse-timing models can yield orbital solutions that reproduce the observations but are dynamically unstable. In our investigation of NY Vir, we combined Newtonian timing models with numerical stability analyses and found that low-eccentricity configurations with two Jupiter-mass companions could remain stable, while alternative eccentric solutions were dynamically unstable.
+Building on these case studies, we analyzed 152 detached eclipsing binaries observed by TESS and used simulations to quantify how detectable circumbinary planets and brown dwarfs are, providing a basis for survey completeness and occurrence-rate estimates ([Esmer & Daylan 2025](/publication/2025aj-170-322e/)).
+
+## Observing Tools and Instrumentation
+
+To support observations with small and meter-class telescopes, I have contributed to open tools for preparing photometric observing maps (ObsMap; [Yalçınkaya et al. 2024](/publication/2024coska-54b-22y/)) and for observation planning (ObserPy; [Güler et al. 2025](/publication/2025coska-55c-466g/)). As a member of the Ankara University Observatory technical team (2015–2022), I supported telescope installation, maintenance, observing operations, and student training, and contributed to the description of the T80 telescope and its focal-plane instruments ([Yörükoğlu et al. 2023](/publication/2023tjaa-4s-294y/)).
