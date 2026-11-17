@@ -36,6 +36,6 @@ author_profile: true
 
 ## Research Mentoring
 
-I have mentored 16 students, from undergraduate to PhD level, at five institutions: the University of Kansas, Washington University in St. Louis, Ankara University, Çukurova University and the University of Zanjan. This work has led to 12 student-led papers (2 under review), and I have continued mentoring several of these students through their own PhD research.
+I have mentored 16 students, from undergraduate to PhD level, at five institutions: the University of Kansas, Washington University in St. Louis, Ankara University, Çukurova University and the University of Zanjan, where I served as an official advisor on a PhD thesis (2021). This work has led to 12 student-led papers (2 under review), and I have continued mentoring several of these students through their own PhD research.
 
 Student-led papers: Al Zaman et al. (2026, AJ, in press); [Temelci et al. (2026, NewA)](/publication/2026newa-12502533t/); [Akar et al. (2025, CoSka)](/publication/2025coska-55c-286a/); [Sertkan et al. (2025, CoSka)](/publication/2025coska-55c-301s/); [Güler et al. (2025, CoSka)](/publication/2025coska-55c-466g/); [Yalçınkaya et al. (2024a, MNRAS)](/publication/2024mnras-530-2475y/); [Yalçınkaya et al. (2024b, CoSka)](/publication/2024coska-54b-22y/); [Demir et al. (2023, TJAA)](/publication/2023tjaa-4s-401d/); [Aladağ et al. (2021, TJAA)](/publication/2021tjaa-2-28a/); [Davoudi et al. (2021, AJ)](/publication/2021aj-162-210d/).
