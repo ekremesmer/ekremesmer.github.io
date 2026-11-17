@@ -27,7 +27,7 @@ author_profile: true
 - Reinforced classroom instruction, mentored students in observational astronomy, and provided individualized academic and technical guidance.
 
 ## Curriculum and Educational Development
-- **ExoCore Open Science Curriculum** (NASA's Transform to Open Science) — *2025*  
+- **[ExoCore Open Science Curriculum](https://github.com/AstroMusers/ExoCore)** (NASA's Transform to Open Science) — *2025*
   Developed interactive Jupyter-based modules on celestial dynamics for an open-access curriculum that lowers the entry barrier to exoplanet research for students and early-career researchers.
 - **Curriculum Development and Revision Committee**, Ankara University — *2018*  
   Contributed the computational and statistical methods component to the undergraduate curriculum revision.
