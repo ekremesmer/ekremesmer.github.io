@@ -21,7 +21,7 @@ author_profile: true
 - Ampersand: Gateway Expeditions Into Exoplanets, Department of Physics, Washington University — *2024, 2025*
 - Observational Instruments, Ankara University — *2016*
 
-![Guest lecture at Washington University in St. Louis](/images/teaching/washu-guest-lecture.jpg){: .outreach-photo style="max-width: 550px"}
+  ![Guest lecture at Washington University in St. Louis](/images/teaching/washu-guest-lecture.jpg){: .outreach-photo style="max-width: 550px"}
 
 ## Observatory Instructor
 *2015–2022 (excluding Fall 2018 and Spring 2019)*
