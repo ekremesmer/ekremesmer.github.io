@@ -7,18 +7,11 @@ redirect_from:
   - /about.html
 ---
 
-I am an astrophysicist at the University of Kansas working on **exoplanetary science, stellar multiplicity, and orbital dynamics**. My research investigates the diversity of planetary and stellar systems, with an emphasis on their detection, characterization, orbital architectures, and dynamical evolution.
+I am a postdoctoral researcher at the University of Kansas, working with Ian Crossfield's ExoLab group. I study planets in binary and multiple star systems: how they can be detected, whether their orbits are stable, and how stellar multiplicity shapes the wider planet population. My work combines eclipse-timing, transit, and radial-velocity observations with dynamical modeling and population statistics, and currently includes occurrence-rate estimates for Earth-like planets.
 
-My work combines ground-based and space-based observations with computational and dynamical modeling to study planetary and substellar companions, binary and higher-order stellar systems, and the gravitational interactions that shape their evolution. I am also interested in connecting the properties of individual systems to broader questions in planetary demographics, particularly how stellar multiplicity and dynamical environments influence planetary populations.
+Before joining KU, I was a McDonnell Center Postdoctoral Fellow at Washington University in St. Louis, and I received my PhD from Ankara University. I also enjoy [teaching](/teaching/) and public [outreach](/outreach/), from university courses to Astronomy on Tap.
 
-## Research Interests
-
-- **Exoplanet Detection and Characterization:** Discovering and characterizing planetary and substellar companions, investigating their physical properties and orbital architectures.
-- **Planetary Demographics:** Studying planetary populations, occurrence rates, and the relationships between planetary properties, host stars, and dynamical environments.
-- **Stellar Multiplicity:** Investigating binary and higher-order stellar systems, their orbital properties, and their influence on planetary systems.
-- **Orbital Dynamics:** Exploring gravitational interactions, orbital evolution, dynamical stability, and the architectures of planetary and stellar systems.
-
-More on current and past projects is on the [Research](/research/) page.
+More on my current and past projects is on the [Research](/research/) page.
 
 ## Recent Publications
 
