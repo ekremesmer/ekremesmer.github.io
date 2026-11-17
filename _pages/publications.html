@@ -5,10 +5,48 @@ permalink: /publications/
 author_profile: true
 ---
 
+<style>
+  /* Publications page only: let the list use the empty space on the right */
+  @media (min-width: 1400px) {
+    .archive > * {
+      margin-right: calc((1280px - 100vw) / 2 + 40px);
+    }
+  }
+  .publication-entry {
+    position: relative;
+    padding-left: 2.8em;
+  }
+  .publication-number {
+    position: absolute;
+    left: 0;
+    width: 2.4em;
+    text-align: right;
+  }
+  @media (min-width: 1024px) {
+    .publication-entry { padding-left: 0; }
+    .publication-number { left: -2.8em; }
+  }
+</style>
+
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
 
-{% for post in sorted_publications %}
-  {% assign publication_number = forloop.index %}
-  {% include archive-publication.html %}
+{% for category in site.publication_category %}
+  {% assign category_pubs = sorted_publications | where: "category", category[0] %}
+  {% if category_pubs.size > 0 %}
+    <h2 class="pub-category">{{ category[1].title }}</h2>
+    {% for post in category_pubs %}
+      {% assign publication_number = forloop.index %}
+      {% include archive-publication.html %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 
+{% assign other_number = 0 %}
+{% for post in sorted_publications %}
+  {% unless site.publication_category[post.category] %}
+    {% if other_number == 0 %}<h2 class="pub-category">Other Publications</h2>{% endif %}
+    {% assign other_number = other_number | plus: 1 %}
+    {% assign publication_number = other_number %}
+    {% include archive-publication.html %}
+  {% endunless %}
+{% endfor %}

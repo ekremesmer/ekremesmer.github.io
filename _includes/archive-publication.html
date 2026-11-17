@@ -2,13 +2,14 @@
 <article class="archive__item publication-entry">
 
   <h2 class="archive__item-title">
-    <span class="publication-number">[{{ publication_number }}]</span>
+    <span class="publication-number">{{ publication_number }}.</span>
     <span>{{ post.title | escape }}</span>
   </h2>
 
 
   {% if post.display_authors or post.authors %}
     {% assign author_list = post.display_authors | default: post.authors | escape %}
+    {% assign author_list = author_list | replace: "; &amp; ", ", &amp;&#32;" %}
     {% assign author_list = author_list | replace: "; ...; ", ", …, " %}
     {% assign author_list = author_list | replace: "; ...", ", …" %}
     {% assign author_list = author_list | replace: "; et al.", ", et al." %}

@@ -1,0 +1,13 @@
+# Manual choices for the publications list. The weekly job never overwrites this file.
+#
+# One instruction per line:
+#   exclude  BIBCODE                    leave this record off the website
+#   category BIBCODE CATEGORY_KEY       force a category (keys from _config.yml:
+#                                       manuscripts, conferences, ...)
+#   venue    BIBCODE Free text venue    replace the journal/venue name shown
+#
+# BIBCODE is the ADS identifier, e.g. 2025AJ....170..322E (shown on each paper's
+# ADS page and in the script output). Lines starting with # are ignored.
+
+venue 2019AIPC.2178c0019B AIP Conference Proceedings
+exclude 2020TJAA....1S.471B   # abstract only

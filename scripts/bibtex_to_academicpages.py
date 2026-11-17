@@ -27,6 +27,93 @@ REPL = {'\\textcommabelow': '\u0326', '\\i': 'ı', '\\j':'ȷ',
         '\\ss':'ß', '\\ae':'æ', '\\AE':'Æ', '\\oe':'œ', '\\OE':'Œ',
         '\\aa':'å', '\\AA':'Å', '\\o':'ø', '\\O':'Ø', '\\l':'ł', '\\L':'Ł'}
 
+# ---------------------------------------------------------------------------
+# Website categories
+# ---------------------------------------------------------------------------
+# Category keys must match the keys under `publication_category:` in _config.yml.
+DEFAULT_CATEGORY = 'manuscripts'
+PROCEEDINGS_CATEGORY = 'conferences'
+
+# Automatic rules: a record matching any of these goes to PROCEEDINGS_CATEGORY.
+# Each rule is (where, regex). `where` is 'key' (the BibTeX key / ADS bibcode)
+# or 'venue' (the journal/booktitle text). Matching is case-insensitive.
+# Add a line here if you start publishing in a new proceedings venue.
+PROCEEDINGS_RULES = [
+    ('key',   r'^\d{4}CoSka'),                 # Contrib. Astron. Obs. Skalnate Pleso
+    ('key',   r'^\d{4}AIPC'),                  # AIP Conference Proceedings
+    ('key',   r'^\d{4}BSRSL'),                 # Bull. Soc. Roy. Sci. Liege
+    ('key',   r'^\d{4}IBVS'),                  # Inf. Bull. Variable Stars
+    ('key',   r'^\d{4}TJAA\.*\d+S[.\d]'),     # TJAA supplement (congress proceedings) volumes
+    ('venue', r'Skalnat'),
+    ('venue', r'Conference (Series|Proceedings)'),
+    ('venue', r'Information Bulletin on Variable Stars'),
+]
+
+# Manual override, written in the .bib entry itself, e.g.
+#     website_category = {manuscripts},
+# always wins over the automatic rules.
+OVERRIDE_FIELD = 'website_category'
+
+# Overrides file (never overwritten by the weekly job). One instruction per line:
+#     exclude  BIBCODE                    -> leave this record off the website
+#     category BIBCODE CATEGORY_KEY       -> force a category
+#     venue    BIBCODE Free text venue    -> replace the journal/venue name shown
+# Lines starting with # are comments.
+OVERRIDES: dict[str, dict[str, str]] = {'exclude': {}, 'category': {}, 'venue': {}}
+
+
+def load_overrides(path: Path) -> None:
+    if not path.is_file():
+        return
+    for n, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+        line = line.split('#', 1)[0].strip()
+        if not line:
+            continue
+        parts = line.split(None, 2)
+        kind = parts[0].lower()
+        if kind == 'exclude' and len(parts) >= 2:
+            OVERRIDES['exclude'][parts[1]] = 'x'
+        elif kind in ('category', 'venue') and len(parts) == 3:
+            OVERRIDES[kind][parts[1]] = parts[2].strip()
+        else:
+            print(f'WARNING: {path}:{n}: could not understand line: {line!r}')
+
+
+def category_for(rec: dict[str, str]) -> tuple[str, str]:
+    """Return (category, reason) for one BibTeX record."""
+    if rec['_key'] in OVERRIDES['category']:
+        return OVERRIDES['category'][rec['_key']], 'overrides.txt'
+    override = rec.get(OVERRIDE_FIELD, '').strip().strip('{}').strip()
+    if override:
+        return override, 'manual override'
+    venue = rec.get('journal', rec.get('booktitle', rec.get('series', '')))
+    for where, pattern in PROCEEDINGS_RULES:
+        text = rec['_key'] if where == 'key' else venue
+        if re.search(pattern, text, flags=re.IGNORECASE):
+            return PROCEEDINGS_CATEGORY, f'rule {where}~/{pattern}/'
+    if rec['_type'] == 'inproceedings':
+        return PROCEEDINGS_CATEGORY, 'BibTeX type @inproceedings'
+    return DEFAULT_CATEGORY, 'default'
+
+
+def config_categories(config_path: Path) -> list[str]:
+    """Read category keys from the `publication_category:` block of _config.yml."""
+    if not config_path.is_file():
+        return []
+    keys, inside = [], False
+    for line in config_path.read_text(encoding='utf-8').splitlines():
+        if re.match(r'^publication_category\s*:', line):
+            inside = True; continue
+        if inside:
+            if line.strip() == '' or line.lstrip().startswith('#'):
+                continue
+            if not line.startswith(' '):
+                break
+            m = re.match(r'^ {2}([A-Za-z0-9_-]+)\s*:', line)
+            if m: keys.append(m[1])
+    return keys
+
+
 def latex_plain(s: str) -> str:
     s = s.replace('~', ' ')
     for cmd, value in JOURNALS.items():
@@ -102,30 +189,55 @@ def authors_field(raw: str) -> str:
             out.append(f'{surname.strip()}, {initials}'.strip())
         else:
             out.append(author)
+    out = ['Esmer, E. M.' if re.match(r'^Esmer\s*,\s*E', a, flags=re.IGNORECASE) else a for a in out]
     return '; '.join(out)
 
+# How many authors to show before 'et al.' (see compact_authors).
+MAX_SHOWN = 5
+
+
 def compact_authors(full_authors: str) -> tuple[str, bool]:
-    """Readable, author-position-aware credit; flag truncated unverified positions."""
+    """Author list shown on the website.
+
+    Rules:
+      * 11 or fewer authors: everyone, with '&' before the last name.
+      * More than 11: the first 10 (or first 11 if I am 11th), then 'et al.'.
+      * I am 12th or later: first three, '…', me, then 'et al.' unless I am last.
+      * My name is always written 'Esmer, E. M.' (bolded by the page template).
+    Returns (text, uncertain) where uncertain=True means my name was not found.
+    """
     names = [x.strip() for x in full_authors.split(';') if x.strip()]
+    truncated = any(x.lower() in ('et al.', 'others') for x in names)
     known = [x for x in names if x.lower() not in ('et al.', 'others')]
     if not known:
         raise ValueError('No identifiable authors in BibTeX record')
-    # Match different first/middle initial variants from the bibliography.
+
     def is_esmer(s: str) -> bool:
-        return bool(re.match(r'^Esmer\s*,', s, flags=re.IGNORECASE))
-    indices = [i for i, name in enumerate(known) if is_esmer(name)]
-    shortened = len(known) != len(names)
-    if indices:
-        pos = indices[0]
-        if pos == 0:
-            return 'Esmer, E. M.; et al.' if len(known)>1 or shortened else 'Esmer, E. M.', False
-        if pos == 1:
-            return f'{known[0]}; Esmer, E. M.; et al.' if len(known)>2 or shortened else f'{known[0]}; Esmer, E. M.', False
-        suffix = '; et al.' if shortened or pos < len(known)-1 else ''
-        return f'{known[0]}; …; Esmer, E. M.{suffix}', False
-    # ADS exports can truncate the author list before Esmer appears.
-    # User has confirmed membership via their CV/ORCID export, but not exact order.
-    return f'{known[0]}; …; Esmer, E. M.; et al.', True
+        return bool(re.match(r'^Esmer\s*,\s*E', s, flags=re.IGNORECASE))
+
+    known = ['Esmer, E. M.' if is_esmer(n) else n for n in known]
+    me = next((i for i, n in enumerate(known) if n == 'Esmer, E. M.'), None)
+    n = len(known)
+
+    def join(parts: list[str], et_al: bool) -> str:
+        if et_al:
+            return '; '.join(parts + ['et al.'])
+        if len(parts) == 1:
+            return parts[0]
+        return '; '.join(parts[:-1]) + '; & ' + parts[-1]
+
+    if me is None:
+        # My name is missing from the record (e.g. a shortened hand-made entry).
+        return '; '.join(known[:3] + ['…', 'Esmer, E. M.', 'et al.']), True
+    if n <= MAX_SHOWN + 1:
+        return join(known, truncated), False
+    if me <= MAX_SHOWN:                # I am within the first MAX_SHOWN + 1
+        shown = known[:max(MAX_SHOWN, me + 1)]
+        return join(shown, True), False
+    # I am 12th or later
+    last = (me == n - 1) and not truncated
+    return '; '.join(known[:3] + ['…', 'Esmer, E. M.'] + ([] if last else ['et al.'])), False
+
 
 def bib_date(rec: dict[str,str]) -> str:
     year = int(rec['year'])
@@ -143,7 +255,8 @@ def as_yaml_string(value: str) -> str:
 
 def render(rec: dict[str,str]) -> str:
     title = latex_plain(rec['title'])
-    journal = latex_plain(rec.get('journal', rec.get('booktitle', rec.get('series', ''))))
+    journal = OVERRIDES['venue'].get(rec['_key']) or \
+        latex_plain(rec.get('journal', rec.get('booktitle', rec.get('series', ''))))
     ads = rec.get('adsurl','')
     doi = rec.get('doi','').removeprefix('https://doi.org/')
     arxiv = rec.get('eprint', '') if rec.get('archiveprefix','').lower() == 'arxiv' else ''
@@ -152,7 +265,7 @@ def render(rec: dict[str,str]) -> str:
     slug = slugify(rec['_key'])
     date_value = bib_date(rec)
     metadata = {'title':title,'collection':'publications',
-                'category':'conferences' if rec['_type']=='inproceedings' else 'manuscripts',
+                'category':category_for(rec)[0],
                 'permalink':f'/publication/{slug}/', 'date':date_value,
                 'year':int(rec['year']), 'authors':authors, 'display_authors':display_authors, 'venue':journal,
                 'volume':latex_plain(rec.get('volume','')),
@@ -176,13 +289,22 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument('--input', default='bibliography/publications.bib')
     p.add_argument('--output', default='_publications')
-    p.add_argument('--expected-count', type=int, default=35)
+    p.add_argument('--expected-count', type=int, default=None,
+                   help='Optional safety check: stop unless the .bib has exactly this many records')
+    p.add_argument('--config', default='_config.yml', help='Used to check category keys')
+    p.add_argument('--overrides', default='bibliography/overrides.txt')
     p.add_argument('--write', action='store_true', help='Write files; otherwise validate only')
     args = p.parse_args()
+    load_overrides(Path(args.overrides))
     src = Path(args.input); dest = Path(args.output)
     if not src.is_file(): p.error(f'Bibliography not found: {src}')
     records = parse_entries(src.read_text(encoding='utf-8-sig'))
-    if len(records) != args.expected_count:
+    excluded = [r['_key'] for r in records if r['_key'] in OVERRIDES['exclude']]
+    records = [r for r in records if r['_key'] not in OVERRIDES['exclude']]
+    if excluded:
+        print(f'Excluded by overrides.txt: {len(excluded)}')
+        for key in excluded: print(f'  - {key}')
+    if args.expected_count is not None and len(records) != args.expected_count:
         p.error(f'Expected {args.expected_count} records, found {len(records)}; no files written')
     keys = [r['_key'] for r in records]
     if len(set(keys)) != len(keys): p.error('Duplicate BibTeX citation keys; no files written')
@@ -197,6 +319,23 @@ def main() -> int:
         print('NOTICE: Author lists truncated before Esmer appears in these records; displaying first author, …, Esmer, et al.:')
         for key in uncertain: print(f'  - {key}')
         print('Verify authorship position from the publisher or full-author export before publishing.')
+
+    # Category report
+    known_categories = config_categories(Path(args.config))
+    by_category: dict[str, list[tuple[str, str]]] = {}
+    for r in records:
+        cat, reason = category_for(r)
+        by_category.setdefault(cat, []).append((r['_key'], reason))
+    print('\nWebsite categories:')
+    for cat, items in by_category.items():
+        flag = '' if (not known_categories or cat in known_categories) else \
+            '   <-- not in _config.yml publication_category; will show under "Other Publications"'
+        print(f'  {cat}: {len(items)}{flag}')
+        for key, reason in sorted(items):
+            if reason != 'default':
+                print(f'      {key}  ({reason})')
+    print()
+
     if not args.write:
         print(f'Validated {len(records)} BibTeX records; no files written.')
         print('Record types:', ', '.join(f'{kind}={sum(r["_type"]==kind for r in records)}' for kind in sorted(set(r['_type'] for r in records))))
@@ -210,6 +349,12 @@ def main() -> int:
     for name,record in zip(filenames,records):
         (dest/name).write_text(render(record), encoding='utf-8')
     print(f'Generated {len(records)} Markdown files in {dest}/')
+    # Remove pages this script generated earlier for papers that are no longer listed.
+    # Hand-made files (without the signature) are never touched.
+    for path in sorted(dest.glob('*.md')):
+        if path.name not in filenames and SIGNATURE in path.read_text(encoding='utf-8'):
+            path.unlink()
+            print(f'Removed (no longer in bibliography): {path}')
     print('Check the local /publications/ page and your Git diff before committing.')
     return 0
 

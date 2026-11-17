@@ -6,7 +6,7 @@ permalink: "/publication/2026tjaa-7simsir/"
 date: "2026-07-09"
 year: 2026
 authors: "Şimşir, Ö.; Akar, F.; Sertkan, E.; Güler, B.; Kutluay, A. C.; Yalçınkaya, S.; Shameoni Niaei, M.; Ertürk, İ. A.; Uçar, S.; Esmer, E. M.; Baştürk, Ö.; Selam, S. O."
-display_authors: "Şimşir, Ö.; …; Esmer, E. M.; et al."
+display_authors: "Şimşir, Ö.; Akar, F.; Sertkan, E.; …; Esmer, E. M.; et al."
 venue: "Turkish Journal of Astronomy and Astrophysics"
 volume: "7"
 doi: "10.55064/tjaa.1937418"
