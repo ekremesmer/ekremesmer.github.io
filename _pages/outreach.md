@@ -16,7 +16,7 @@ author_profile: true
   Astronomy education for primary and secondary school students, including groups from disadvantaged schools.
 - Organizer and Instructor, Public Events on Special Celestial Events, AUO — *2007–2024*
 - Coordinator and Editor, Annual Celestial Events Calendar, AUO — *2015–2024*
-- Moderator and Speaker, Online Astronomy Outreach Events, AUO — *2019–2022* · [my talk (video)](https://www.youtube.com/watch?v=rC3RlHO2bsk)
+- Moderator and Speaker, Online Astronomy Outreach Events, AUO — *2019–2022* · [my talk, in Turkish)](https://www.youtube.com/watch?v=rC3RlHO2bsk)
 - Instructor, AUO Summer Schools — *2015–2019*
 - Task Coordinator, Public Outreach Events, AUO — *2015–2018*
 - Instructor, Astronomy Festivals in Turunç, ITAP — *2011*  
@@ -32,10 +32,10 @@ author_profile: true
 - **Discovery of New Worlds**  
   Space Week, Physics Research Society, Ankara University, Ankara, Turkey — *May 24, 2024*
 - **Sun and the Solar System**  
-  AESS Space and Aerospace Summit, Abdullah Gül University, Kayseri, Turkey — *Dec 15, 2022*  
+  AESS Space and Aerospace Summit, Abdullah Gül University, Kayseri, Turkey — *Dec 15, 2022* · [video, in Turkish](https://www.youtube.com/watch?v=33eBcVKgmCo)
   Teacher Training Seminars, Ankara Provincial Directorate of Education, Turkey — *Dec 13, 2022*
 - **Discovery of Two Exoplanets in the Kepler-451 Binary System**  
-  AESS Space Seminar, Abdullah Gül University, Kayseri, Turkey — *Jul 18, 2022*  
+  AESS Space Seminar, Abdullah Gül University, Kayseri, Turkey — *Jul 18, 2022* · [video, in Turkish](https://www.youtube.com/watch?v=XOn1iBJHYKY)  
   ATLAS Space and Aerospace Society, Atatürk University, Erzurum, Turkey — *Mar 26, 2022*  
   GUHEM – Gökmen Space and Aviation Training Center, Bursa, Turkey — *Mar 19, 2022*
 
