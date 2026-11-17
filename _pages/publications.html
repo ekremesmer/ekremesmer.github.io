@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Publications"
+#title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
@@ -26,6 +26,7 @@ author_profile: true
     .publication-entry { padding-left: 0; }
     .publication-number { left: -2.8em; }
   }
+  .archive > .pub-category:first-of-type { margin-top: 0; }
 </style>
 
 {% assign sorted_publications = site.publications | sort: "date" | reverse %}
