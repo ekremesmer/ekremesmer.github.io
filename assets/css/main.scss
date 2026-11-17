@@ -88,3 +88,12 @@
   margin: 0.4em 0 2em;
   border-radius: 6px;
 }
+/* Framed figures and photos, all pages */
+.page__content div[style*="text-align: center"] img,
+.outreach-photo {
+  background: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 2px solid var(--global-border-color, #999);
+}
